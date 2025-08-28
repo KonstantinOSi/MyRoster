@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кровавые Ангелы — Армейский лист (2000 очков)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 10px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+    h1 {
+      color: #d40000;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #ff6b35;
+      border-bottom: 2px solid #d40000;
+      padding-bottom: 8px;
+      margin-top: 25px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #aaa;
+      font-style: italic;
+      margin-bottom: 25px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      padding: 12px 10px;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+    tr:hover {
+      background-color: #2c2c2c;
+    }
+    .section {
+      margin: 30px 0;
+    }
+    .note {
+      background-color: #2a1a1a;
+      padding: 15px;
+      border-left: 4px solid #d40000;
+      font-style: italic;
+      color: #f8d7da;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+      font-size: 0.9em;
+    }
+    .badge {
+      display: inline-block;
+      background-color: #d40000;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.8em;
+      margin-right: 5px;
+    }
+
+    /* Раскрывающиеся карточки */
+    .unit-item {
+      margin: 15px 0;
+      border: 1px solid #444;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .unit-header {
+      background-color: #2a1a1a;
+      padding: 10px 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #f0f0f0;
+      font-weight: bold;
+    }
+    .unit-header:hover {
+      background-color: #3a2a2a;
+    }
+    .unit-content {
+      display: none;
+      padding: 15px;
+      background-color: #222;
+      color: #ddd;
+      font-size: 0.9em;
+      border-top: 1px solid #444;
+    }
+    .unit-content.active {
+      display: block;
+    }
+    .card-title {
+      color: #d40000;
+      margin-bottom: 5px;
+    }
+    .card-stat {
+      margin: 5px 0;
+      font-family: monospace;
+    }
+    .card-desc {
+      margin: 10px 0;
+      color: #ccc;
+    }
+    .card-wargear {
+      margin: 10px 0;
+      color: #bbb;
+    }
+    .card-special {
+      margin: 10px 0;
+      color: #f00;
+    }
+    .toggle-icon {
+      transition: transform 0.3s ease;
+    }
+    .toggle-icon.open {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚔️ Blood Angels — Кровь и Гнев</h1>
+    <p class="subtitle">Армейский лист • 2000 очков • Warhammer 40,000</p>
+
+    <div class="section">
+      <h2>🔹 Фракция и информация</h2>
+      <table>
+        <tr><th>Параметр</th><th>Значение</th></tr>
+        <tr><td>Фракция</td><td>Adeptus Astartes (Blood Angels)</td></tr>
+        <tr><td>Тема</td><td>Агрессивная атака + дальнее прикрытие</td></tr>
+        <tr><td>Очки</td><td>2000 / 2000</td></tr>
+        <tr><td>Источники</td><td>Codex: Space Marines, Index: Imperium 2, War Zone: Octarius</td></tr>
+      </table>
+    </div>
+
+    <!-- Командование -->
+    <div class="section">
+      <h2>⚔️ Командование</h2>
+<!-- Мефистон -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('mephiston')">
+    <span><span class="badge">Epic Hero</span> Chief Librarian Mephiston</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="mephiston" class="unit-content">
+    <div class="card-title">Chief Librarian Mephiston</div>
+    <div class="card-stat"><strong>Stats:</strong> M7", T5, Sv2+, W6, Ld6+, OC1, 5+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Fury of the Ancients – witchfire [PISTOL, PSYCHIC, SUSTAINED HITS 1]</td><td>18"</td><td>3</td><td>2+</td><td>4</td><td>-1</td><td>D3</td></tr>
+      <tr><td>Fury of the Ancients – focused witchfire [HAZARDOUS, PISTOL, PSYCHIC, SUSTAINED HITS 3]</td><td>18"</td><td>3</td><td>2+</td><td>5</td><td>-2</td><td>D3</td></tr>
+      <tr><td>Plasma pistol – standard [PISTOL]</td><td>12"</td><td>1</td><td>2+</td><td>7</td><td>-2</td><td>1</td></tr>
+      <tr><td>Plasma pistol – supercharge [HAZARDOUS, PISTOL]</td><td>12"</td><td>1</td><td>2+</td><td>8</td><td>-3</td><td>2</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Vitrus [LETHAL HITS, PSYCHIC]</td><td>Melee</td><td>6</td><td>3+</td><td>9</td><td>-3</td><td>D3</td></tr>
+    </table>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Feel No Pain 4+, Fights First, Lone Operative<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>The Quickenings (Psychic):</strong> This model is eligible to declare a charge in a turn in which it Advanced.<br>
+      <strong>Transfixing Gaze (Aura, Psychic):</strong> While an enemy unit is within 6" of this model, each time that unit is selected to Fall Back, it must take a Leadership test. If that test is failed, that unit must Remain Stationary this phase instead.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Chief Librarian Mephiston – EPIC HERO<br>
+      This model is equipped with: plasma pistol; Fury of the Ancients; Vitrus.<br>
+      1 model
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, CHARACTER, EPIC HERO, PSYKER, GRENADES, IMPERIUM, TACTICS, CHIEF LIBRARIAN MEPHISTON<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES, BLOOD ANGELS
+    </div>
+  </div>
+</div>
+
+<!-- Капитан кровавых ангелов -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('ba_captain')">
+    <span>Blood Angels Captain</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="ba_captain" class="unit-content">
+    <div class="card-title">Blood Angels Captain</div>
+    <div class="card-stat"><strong>Stats:</strong> M6", T4, Sv3+, W5, Ld6+, OC1, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Heavy bolt pistol [PISTOL]</td><td>18"</td><td>1</td><td>2+</td><td>4</td><td>-1</td><td>1</td></tr>
+      <tr><td>Inferno pistol [MELTA 2, PISTOL]</td><td>6"</td><td>1</td><td>2+</td><td>8</td><td>-4</td><td>1</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Master-crafted chainsword</td><td>Melee</td><td>7</td><td>2+</td><td>4</td><td>-1</td><td>2</td></tr>
+      <tr><td>Power fist</td><td>Melee</td><td>5</td><td>2+</td><td>8</td><td>-2</td><td>2</td></tr>
+      <tr><td>Relic weapon</td><td>Melee</td><td>6</td><td>2+</td><td>5</td><td>-2</td><td>2</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • This model's heavy bolt pistol can be replaced with 1 inferno pistol.<br>
+      • This model's master-crafted chainsword can be replaced with one of the following:<br>
+        ▪ 1 relic weapon<br>
+        ▪ 1 power fist
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Leader<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Rites of Battle:</strong> Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.<br>
+      <strong>Finest Hour:</strong> Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by this model and those weapons have the [DEVASTATING WOUNDS] ability.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Blood Angels Captain<br>
+      This model is equipped with: heavy bolt pistol; master-crafted chainsword.<br>
+      1 model
+    </div>
+    <div class="card-desc">
+      <strong>LEADER:</strong><br>
+      This model can be attached to the following units:<br>
+      • Assault Intercessor Squad<br>
+      • Company Heroes<br>
+      • Infernus Squad<br>
+      • Intercessor Squad<br>
+      • Sternguard Veteran Squad<br>
+      • Tactical Squad<br>
+      • Crusader Squad<br>
+      • Primaris Crusader Squad<br>
+      • Primaris Sword Brethren<br>
+      • Inner Circle Companions<br>
+      • Deathwatch Veterans<br>
+      • Fortis Kill Team
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, CHARACTER, GRENADES, IMPERIUM, TACTICS, CAPTAIN<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES, BLOOD ANGELS
+    </div>
+  </div>
+</div>
+
+<!-- Death Company Captain -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('deathcap')">
+    <span>Death Company Captain</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="deathcap" class="unit-content">
+    <div class="card-title">Death Company Captain</div>
+    <div class="card-stat"><strong>Stats:</strong> M6", T4, Sv3+, W5, Ld6+, OC1, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Heavy bolt pistol [PISTOL]</td><td>18"</td><td>1</td><td>2+</td><td>4</td><td>-1</td><td>1</td></tr>
+      <tr><td>Inferno pistol [MELTA 2, PISTOL]</td><td>6"</td><td>1</td><td>2+</td><td>8</td><td>-4</td><td>1</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Master-crafted chainsword</td><td>Melee</td><td>7</td><td>2+</td><td>4</td><td>-1</td><td>2</td></tr>
+      <tr><td>Power fist</td><td>Melee</td><td>5</td><td>2+</td><td>8</td><td>-2</td><td>2</td></tr>
+      <tr><td>Relic weapon</td><td>Melee</td><td>6</td><td>2+</td><td>5</td><td>-2</td><td>2</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • This model's heavy bolt pistol can be replaced with 1 inferno pistol.<br>
+      • This model's master-crafted chainsword can be replaced with one of the following:<br>
+        ▪ 1 relic weapon<br>
+        ▪ 1 power fist
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Feel No Pain 6+, Leader<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Furious Hero:</strong> While this model is leading a unit, unless that unit starts the battle embarked within a TRANSPORT, models in that unit have the Scouts 6" ability.<br>
+      <strong>Black Rage:</strong> Each time this model makes a melee attack, you can re-roll the Hit roll. While this model's unit is not within 6" of one or more friendly BLOOD ANGELS CHARACTER models, or 12" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.<br>
+      <strong>Death Vision of Sanguinius:</strong> If this model is destroyed by a melee attack, after the attacking unit has finished making its attacks, you can roll one D6, adding 2 to the result if the attacking unit contains 3+ mortal wounds; on a 2-3, that enemy unit suffers 03 mortal wounds; on a 4-5, that enemy unit suffers 03+1 mortal wounds; on a 6+, that enemy unit suffers 03+3 mortal wounds.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Death Company Captain<br>
+      This model is equipped with: heavy bolt pistol; master-crafted chainsword.<br>
+      1 model
+    </div>
+    <div class="card-desc">
+      <strong>LEADER:</strong><br>
+      This model can be attached to the following units:<br>
+      • Death Company Marines<br>
+      • Death Company Marines with Bolt Rifles
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, CHARACTER, GRENADES, IMPERIUM, TACTICS, DEATH COMPANY, CAPTAIN<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES, BLOOD ANGELS
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <!-- Ближний бой -->
+    <div class="section">
+      <h2>⚔️ Ближний бой</h2>
+
+<!-- Death Company Marines -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('dcmarines')">
+    <span>Death Company Marines</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="dcmarines" class="unit-content">
+    <div class="card-title">Death Company Marines</div>
+    <div class="card-stat"><strong>Stats:</strong> M6", T4, Sv3+, W2, Ld6+, OC1, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Hand flamer [IGNORES COVER, PISTOL, TORRENT]</td><td>12"</td><td>D6</td><td>N/A</td><td>3</td><td>0</td><td>1</td></tr>
+      <tr><td>Heavy bolt pistol [PISTOL]</td><td>18"</td><td>1</td><td>2+</td><td>4</td><td>-1</td><td>1</td></tr>
+      <tr><td>Inferno pistol [MELTA 2, PISTOL]</td><td>6"</td><td>1</td><td>2+</td><td>8</td><td>-4</td><td>1</td></tr>
+      <tr><td>Plasma pistol – standard [PISTOL]</td><td>12"</td><td>1</td><td>2+</td><td>8</td><td>-3</td><td>2</td></tr>
+      <tr><td>Plasma pistol – supercharge [HAZARDOUS, PISTOL]</td><td>12"</td><td>1</td><td>2+</td><td>8</td><td>-3</td><td>2</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Astartes chainsword</td><td>Melee</td><td>4</td><td>3+</td><td>4</td><td>-1</td><td>2</td></tr>
+      <tr><td>Eviscerator [SUSTAINED HITS 1]</td><td>Melee</td><td>3</td><td>4+</td><td>7</td><td>-2</td><td>2</td></tr>
+      <tr><td>Power fist</td><td>Melee</td><td>3</td><td>3+</td><td>8</td><td>-2</td><td>2</td></tr>
+      <tr><td>Power weapon</td><td>Melee</td><td>4</td><td>3+</td><td>5</td><td>-2</td><td>2</td></tr>
+      <tr><td>Thunder hammer [DEVASTATING WOUNDS]</td><td>Melee</td><td>3</td><td>4+</td><td>8</td><td>-2</td><td>2</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • 1 model's heavy bolt pistol can be replaced with one of the following:<br>
+        ▪ 1 hand flamer<br>
+        ▪ 1 inferno pistol<br>
+        ▪ 1 plasma pistol<br>
+      • For every 5 models in this unit, 1 model's Astartes chainsword can be replaced with equipped with 1 eviscerator.<br>
+      • 1 model's Astartes chainsword can be replaced with one of the following:<br>
+        ▪ 1 power fist<br>
+        ▪ 1 power weapon<br>
+        ▪ 1 thunder hammer
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Feel No Pain 5+<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Black Rage:</strong> Each time this model makes a melee attack, you can re-roll the Hit roll. While this model's unit is not within 6" of one or more friendly BLOOD ANGELS CHARACTER models, or 12" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.<br>
+      <strong>An Honorable Death in Combat:</strong> Each time a model in this unit makes an attack, that attack has the [SUSTAINED HITS 1] ability if that unit is below its Starting Strength, or the [SUSTAINED HITS 2] ability if that unit is Below Half-strength.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 5-10 Death Company Marines<br>
+      Every model is equipped with: heavy bolt pistol; Astartes chainsword.<br>
+      5 models — 85 очков<br>
+      10 models — 160 очков
+    </div>
+    <div class="card-desc">
+      <strong>ATTACHED UNIT:</strong><br>
+      If a CHAPLAIN model from your army with the Leader ability can be attached to an ASSAULT INTERCESSOR WITH JUMP PACKS unit, it can be attached to this unit instead.
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, GRENADES, IMPERIUM, TACTICS, DEATH COMPANY, DEATH COMPANY MARINES<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES, BLOOD ANGELS
+    </div>
+  </div>
+</div>
+
+<!-- Sanguinary Guard -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('sanguinary')">
+    <span>Sanguinary Guard</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="sanguinary" class="unit-content">
+    <div class="card-title">Sanguinary Guard</div>
+    <div class="card-stat"><strong>Stats:</strong> M12", T4, Sv2+, W3, Ld6+, OC1, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Angelus boltgun [PISTOL]</td><td>12"</td><td>2</td><td>3+</td><td>4</td><td>0</td><td>1</td></tr>
+      <tr><td>Inferno pistol [MELTA 2, PISTOL]</td><td>6"</td><td>1</td><td>3+</td><td>8</td><td>-4</td><td>D3</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Encarmine blade</td><td>Melee</td><td>4</td><td>3+</td><td>6</td><td>-3</td><td>2</td></tr>
+      <tr><td>Encarmine spear [LANCE]</td><td>Melee</td><td>3</td><td>3+</td><td>6</td><td>-2</td><td>2</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • Any number of models can each have their encarmine blade replaced with 1 encarmine spear.<br>
+      • For every 3 models in this unit, 1 model's Angelus boltgun can be replaced with 1 inferno pistol.<br>
+      • One model can be equipped with 1 Sanguinary banner.
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Deep Strike<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Angelic Visage:</strong> Each time a melee attack targets this unit, subtract 1 from the Hit roll.<br>
+      <strong>Heirs of Azkaellon:</strong> While a CHARACTER model is leading this unit, each time a melee attack targets this unit, subtract 1 from the Wound roll.
+    </div>
+    <div class="card-special">
+      <strong>Wargear Abilities:</strong><br>
+      <strong>Sanguinary Banner:</strong> Add 1 to the Objective Control characteristic of models in the bearer's unit.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 3-6 Sanguinary Guard<br>
+      Every model is equipped with: Angelus boltgun; encarmine blade.<br>
+      3 models — 110 очков<br>
+      6 models — 220 очков
+    </div>
+    <div class="card-desc">
+      <strong>ATTACHED UNIT:</strong><br>
+      If a CAPTAIN model from your army with the Leader ability can be attached to an ASSAULT INTERCESSORS WITH JUMP PACKS unit, it can be attached to this unit instead.
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, FLY, JUMP PACK, GRENADES, IMPERIUM, TACTICS, SANGUINARY GUARD<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES, BLOOD ANGELS
+    </div>
+  </div>
+</div>
+
+    </div>
+
+<!-- Terminator Squad -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('terminators')">
+    <span>Terminator Squad</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="terminators" class="unit-content">
+    <div class="card-title">Terminator Squad</div>
+    <div class="card-stat"><strong>Stats:</strong> M5", T5, Sv2+, W3, Ld6+, OC1, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Assault cannon [DEVASTATING WOUNDS]</td><td>24"</td><td>6</td><td>3+</td><td>6</td><td>0</td><td>1</td></tr>
+      <tr><td>Cyclone missile launcher – frag [BLAST]</td><td>36"</td><td>2D6</td><td>3+</td><td>4</td><td>0</td><td>1</td></tr>
+      <tr><td>Cyclone missile launcher – krak</td><td>36"</td><td>2</td><td>3+</td><td>9</td><td>-2</td><td>D6</td></tr>
+      <tr><td>Heavy flamer [IGNORES COVER, TORRENT]</td><td>12"</td><td>D6</td><td>N/A</td><td>5</td><td>-1</td><td>1</td></tr>
+      <tr><td>Storm bolter [RAPID FIRE 2]</td><td>24"</td><td>4</td><td>3+</td><td>4</td><td>0</td><td>1</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Chainfist [ANTI-VEHICLE 3+]</td><td>Melee</td><td>3</td><td>4+</td><td>8</td><td>-2</td><td>2</td></tr>
+      <tr><td>Power fist</td><td>Melee</td><td>3</td><td>3+</td><td>8</td><td>-2</td><td>2</td></tr>
+      <tr><td>Power weapon</td><td>Melee</td><td>4</td><td>3+</td><td>5</td><td>-2</td><td>1</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • For every 5 models in this unit, 1 Terminator's storm bolter can be replaced with one of the following:<br>
+        ▪ 1 assault cannon<br>
+        ▪ 1 heavy flamer<br>
+        ▪ 1 cyclone missile launcher and 1 storm bolter.*<br>
+      • Any number of models can each have their power fist replaced with 1 chainfist.<br>
+      • The Terminator Sergeant's power fist can be replaced with 1 power weapon.<br>
+      <small>*This model's storm bolter cannot be replaced.</small>
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Deep Strike<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Teleport Homer:</strong> At the start of the battle, you can set up a Teleport Homer token for this unit anywhere on the battlefield that is not in your opponent's deployment zone. If you do, once per battle, you can target this unit with the Rapid Ingress Stratagem. If you do, when resolving that Stratagem, you must set this unit up within 3" of that token and not within 9" of any enemy models. That token is then removed.<br>
+      <strong>Fury of the First:</strong> Each time a model in this unit makes an attack that targets your Oath of Moment target, add 1 to the Hit roll.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Terminator Sergeant<br>
+      • 4-9 Terminators<br>
+      Every model is equipped with: storm bolter; power fist.<br>
+      5 models — 170 очков<br>
+      10 models — 340 очков
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, IMPERIUM, TERMINATOR, TERMINATOR SQUAD<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES
+    </div>
+  </div>
+</div>
+
+    <!-- Дальний бой -->
+    <div class="section">
+      <h2>🔫 Дальний огонь</h2>
+
+<!-- Eradicator Squad -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('eradicator')">
+    <span>Eradicator Squad</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="eradicator" class="unit-content">
+    <div class="card-title">Eradicator Squad</div>
+    <div class="card-stat"><strong>Stats:</strong> M5", T6, Sv3+, W3, Ld6+, OC1, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Bolt pistol [PISTOL]</td><td>12"</td><td>1</td><td>3+</td><td>4</td><td>0</td><td>1</td></tr>
+      <tr><td>Melta rifle [HEAVY, MELTA 2]</td><td>18"</td><td>1</td><td>3+</td><td>9</td><td>-4</td><td>D6</td></tr>
+      <tr><td>Multi-melta [HEAVY, MELTA 2]</td><td>18"</td><td>2</td><td>4+</td><td>9</td><td>-4</td><td>D6</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Close combat weapon</td><td>Melee</td><td>3</td><td>3+</td><td>4</td><td>0</td><td>1</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • For every 3 models in this unit, 1 Eradicator's melta rifle can be replaced with 1 multi-melta.
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Total Obliteration:</strong> Each time a ranged attack made by a model in this unit targets a MONSTER or VEHICLE model, you can re-roll the Hit roll and you can re-roll the Damage roll.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Eradicator Sergeant<br>
+      • 2-5 Eradicators<br>
+      Every model is equipped with: bolt pistol; melta rifle; close combat weapon.<br>
+      3 models — 100 очков<br>
+      6 models — 200 очков
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, GRENADES, IMPERIUM, GRAVIS, ERADICATOR SQUAD<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <!-- Тяжелая техника -->
+    <div class="section">
+      <h2>🤖 Тяжёлая техника</h2>
+<!-- Death Company Dreadnought -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('dreadnought')">
+    <span>Death Company Dreadnought</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="dreadnought" class="unit-content">
+    <div class="card-title">Death Company Dreadnought</div>
+    <div class="card-stat"><strong>Stats:</strong> M8", T10, Sv2+, W12, Ld6+, OC4, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Twin fast bolt bolter [TWIN-LINKED]</td><td>24"</td><td>4</td><td>3+</td><td>5</td><td>-1</td><td>2</td></tr>
+      <tr><td>Twin heavy bolter [SUSTAINED HITS 1, TWIN-LINKED]</td><td>36"</td><td>3</td><td>3+</td><td>5</td><td>0</td><td>1</td></tr>
+      <tr><td>Twin Icarus ironhail heavy stubber [ANTIFLY 4+, RAPID FIRE 3, TWIN-LINKED]</td><td>36"</td><td>3</td><td>3+</td><td>4</td><td>0</td><td>1</td></tr>
+      <tr><td>Twin multi-melta [MELTA 2, TWIN-LINKED]</td><td>18"</td><td>2</td><td>3+</td><td>9</td><td>-4</td><td>D6</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Blood fists [TWIN-LINKED]</td><td>Melee</td><td>6</td><td>3+</td><td>12</td><td>-2</td><td>3</td></tr>
+      <tr><td>Blood talons – strike [TWIN-LINKED]</td><td>Melee</td><td>6</td><td>3+</td><td>12</td><td>-2</td><td>3</td></tr>
+      <tr><td>Blood talons – sweep [TWIN-LINKED]</td><td>Melee</td><td>10</td><td>3+</td><td>7</td><td>-2</td><td>1</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • This model's twin heavy bolter can be replaced with 1 multi-melta.<br>
+      • This model's blood fists and blood fist bolt rifles can be replaced with 1 blood talons.
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Deadly Demise D3, Feel No Pain 6+<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Black Rage:</strong> Each time this model makes a melee attack, you can re-roll the Hit roll. While this model's unit is not within 6" of one or more friendly BLOOD ANGELS CHARACTER models, or 12" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.<br>
+      <strong>Driven by Fury:</strong> In your opponent's Shooting phase, each time an enemy unit has shot, if this model was hit by one or more of those attacks, it can make a Driven by Fury move. To do so, roll one D6 and add 2 to the result. This model moves up to that many inches and up to the result, but must finish as close as possible to the closest enemy unit (excluding AIRCRAFT). A model cannot make a Driven by Fury move while it is Battle-shocked or within Engagement Range of one or more enemy units, and can only make one Driven by Fury move per phase.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Death Company Dreadnought<br>
+      This model is equipped with: twin Icarus ironhail heavy stubber; twin heavy bolter; blood fist bolt rifles; blood fists.<br>
+      1 model
+    </div>
+    <div class="card-desc">
+      <strong>DAMAGED: 1-4 WOUNDS REMAINING</strong
+</div>
+</div>
+</div>
+</div>
+<!-- Имперский рыцарь -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('preceptor')">
+    <span><span class="badge">Imperial Knight</span> Knight Preceptor</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="preceptor" class="unit-content">
+    <div class="card-title">Knight Preceptor</div>
+    <div class="card-stat"><strong>Stats:</strong> M10", T11, Sv3+, W26, Ld6+, OC10, 5+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Icarus autocannons</td><td>48"</td><td>3</td><td>3+</td><td>7</td><td>-1</td><td>2</td></tr>
+      <tr><td>Ironstorm missile pod [BLAST, INDIRECT FIRE]</td><td>48"</td><td>D6+1</td><td>3+</td><td>5</td><td>0</td><td>1</td></tr>
+      <tr><td>Las-impulsor – low intensity [BLAST]</td><td>36"</td><td>D6</td><td>3+</td><td>7</td><td>-1</td><td>2</td></tr>
+      <tr><td>Las-impulsor – high intensity</td><td>24"</td><td>D6</td><td>3+</td><td>14</td><td>-3</td><td>4</td></tr>
+      <tr><td>Meltagun [MELTA 2]</td><td>12"</td><td>1</td><td>3+</td><td>9</td><td>-4</td><td>D6</td></tr>
+      <tr><td>Preceptor multi-laser</td><td>36"</td><td>4</td><td>3+</td><td>6</td><td>0</td><td>1</td></tr>
+      <tr><td>Questoris heavy stubber [RAPID FIRE 3]</td><td>36"</td><td>3</td><td>3+</td><td>4</td><td>-1</td><td>1</td></tr>
+      <tr><td>Stormspear rocket pod</td><td>48"</td><td>3</td><td>3+</td><td>8</td><td>-2</td><td>D6</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Reaper chainsword – strike</td><td>Melee</td><td>4</td><td>3+</td><td>14</td><td>-4</td><td>6</td></tr>
+      <tr><td>Reaper chainsword – sweep</td><td>Melee</td><td>12</td><td>3+</td><td>9</td><td>-3</td><td>2</td></tr>
+      <tr><td>Thunderstrike gauntlet – strike</td><td>Melee</td><td>4</td><td>3+</td><td>20</td><td>-3</td><td>8</td></tr>
+      <tr><td>Thunderstrike gauntlet – sweep</td><td>Melee</td><td>8</td><td>3+</td><td>10</td><td>-3</td><td>3</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • This model's Preceptor multi-laser can be replaced with one of the following:<br>
+        ▪ 1 meltagun<br>
+        ▪ 1 Questoris heavy stubber<br>
+      • This model's reaper chainsword can be replaced with 1 thunderstrike gauntlet.<br>
+      • This model can be equipped with one of the following:<br>
+        ▪ 1 Icarus autocannons<br>
+        ▪ 1 ironstorm missile pod<br>
+        ▪ 1 stormspear rocket pod
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Deadly Demise D6<br>
+      <strong>FACTION:</strong> Code Chivalric, Super-heavy Walker<br>
+      <strong>Mentor (Bondsman):</strong> While a model is affected by this ability, improve that model's Leadership characteristic by 1 and improve that model's Objective Control characteristic by 2.<br>
+      <strong>Exemplar of the Code:</strong> At the start of the battle, select one unit from your opponent's army. Each time this model makes an attack that targets that unit, you can re-roll the Hit roll.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Knight Preceptor<br>
+      This model is equipped with: las-impulsor; Preceptor multi-laser; reaper chainsword.<br>
+      1 model
+    </div>
+    <div class="card-desc">
+      <strong>DAMAGED: 1-9 WOUNDS REMAINING</strong><br>
+      While this model has 1-9 wounds remaining, subtract 5 from this model's Objective Control characteristic and each time this model makes an attack, subtract 1 from the Hit roll.
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> VEHICLE, WALKER, TITANIC, TOWERING, QUESTORIS, CHARACTER, IMPERIUM, KNIGHT PRECEPTOR<br>
+      <strong>FACTION KEYWORDS:</strong> IMPERIAL KNIGHTS
+    </div>
+  </div>
+</div>
+    </div>
+
+    <!-- Поддержка -->
+    <div class="section">
+      <h2>🤖 Поддержка</h2>
+
+<!-- Stormraven Gunship -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('stormraven')">
+    <span>Stormraven Gunship</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="stormraven" class="unit-content">
+    <div class="card-title">Stormraven Gunship</div>
+    <div class="card-stat"><strong>Stats:</strong> M20+", T10, Sv3+, W14, Ld6+, OC0, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Hurricane bolter [RAPID FIRE 6, TWIN-LINKED]</td><td>24"</td><td>6</td><td>3+</td><td>4</td><td>0</td><td>1</td></tr>
+      <tr><td>Stormstrike missile launcher</td><td>48"</td><td>1</td><td>3+</td><td>10</td><td>-2</td><td>3</td></tr>
+      <tr><td>Twin assault cannon [DEVASTATING WOUNDS, TWIN-LINKED]</td><td>24"</td><td>6</td><td>3+</td><td>6</td><td>0</td><td>1</td></tr>
+      <tr><td>Twin heavy bolter [SUSTAINED HITS 1, TWIN-LINKED]</td><td>36"</td><td>3</td><td>3+</td><td>5</td><td>-1</td><td>2</td></tr>
+      <tr><td>Twin heavy plasma cannon – standard</td><td>36"</td><td>D3</td><td>3+</td><td>7</td><td>-2</td><td>2</td></tr>
+      <tr><td>Twin heavy plasma cannon – supercharge</td><td>36"</td><td>D3</td><td>3+</td><td>8</td><td>-3</td><td>3</td></tr>
+      <tr><td>Twin lascannon [TWIN-LINKED]</td><td>48"</td><td>1</td><td>3+</td><td>12</td><td>-3</td><td>D6+1</td></tr>
+      <tr><td>Twin multi-melta [MELTA 2, TWIN-LINKED]</td><td>18"</td><td>2</td><td>3+</td><td>9</td><td>-4</td><td>D6</td></tr>
+      <tr><td>Typhoon missile launcher – frag [BLAST]</td><td>48"</td><td>2D6</td><td>3+</td><td>9</td><td>-2</td><td>D6</td></tr>
+      <tr><td>Typhoon missile launcher – krak</td><td>48"</td><td>2</td><td>3+</td><td>9</td><td>-2</td><td>D6</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Armoured hull</td><td>Melee</td><td>6</td><td>4+</td><td>8</td><td>0</td><td>1</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • This model's twin assault cannon can be replaced with one of the following:<br>
+        ▪ 1 twin heavy plasma cannon<br>
+        ▪ 1 twin lascannon<br>
+      • This model's typhoon missile launcher can be replaced with one of the following:<br>
+        ▪ 1 twin heavy bolter<br>
+        ▪ 1 twin multi-melta<br>
+      • This model can be equipped with 2 hurricane bolters.
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Deadly Demise D6, Hover<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Armoured Resilience:</strong> Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Stormraven Gunship<br>
+      This model is equipped with: 2 stormstrike missile launchers; twin assault cannon; typhoon missile launcher; armoured hull.<br>
+      1 model
+    </div>
+    <div class="card-desc">
+      <strong>DAMAGED: 1-5 WOUNDS REMAINING</strong><br>
+      While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.
+    </div>
+    <div class="card-desc">
+      <strong>TRANSPORT:</strong><br>
+      This model has a transport capacity of 12 ADEPTUS ASTARTES INFANTRY models and 1 DREADNOUGHT model. Each JUMP PACK, WULFEN, GRAVIS or TERMINATOR model takes up the space of 2 models and each CENTURION model takes up the space of 3 models.
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> VEHICLE, FLY, AIRCRAFT, TRANSPORT, IMPERIUM, STORMRAVEN GUNSHIP<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES
+    </div>
+  </div>
+</div>
+
+<!-- Techmarine -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('techmarine')">
+    <span>Techmarine</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="techmarine" class="unit-content">
+    <div class="card-title">Techmarine</div>
+    <div class="card-stat"><strong>Stats:</strong> M6", T4, Sv2+, W4, Ld6+, OC1, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Forge bolter</td><td>24"</td><td>3</td><td>2+</td><td>5</td><td>-1</td><td>2</td></tr>
+      <tr><td>Grav-pistol [ANTI-VEHICLE 2+, PISTOL]</td><td>12"</td><td>1</td><td>2+</td><td>4</td><td>-1</td><td>2</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Omnissian power axe</td><td>Melee</td><td>4</td><td>3+</td><td>6</td><td>-2</td><td>2</td></tr>
+      <tr><td>Servo-arm [EXTRA ATTACKS]</td><td>Melee</td><td>1</td><td>3+</td><td>8</td><td>-2</td><td>3</td></tr>
+    </table>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Leader<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Techmarine:</strong> While this model is within 3" of one or more friendly ADEPTUS ASTARTES VEHICLE units, this model has the Lone Operative ability.<br>
+      <strong>Blessing of the Omnissiah:</strong> In your Command phase, you can select one friendly ADEPTUS ASTARTES VEHICLE model within 3" of this model. That model regains up to D3 lost wounds and, until the start of your next Command phase, each time that Vehicle model makes an attack, add 1 to the Hit roll. Each model can only be selected for this ability once per turn.<br>
+      <strong>Vengeance of the Omnissiah:</strong> If a friendly ADEPTUS ASTARTES VEHICLE model is destroyed within 12" of this model, until the end of the battle, this model's Omnissian power axe has an Attacks characteristic of 7.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Techmarine<br>
+      This model is equipped with: forge bolter; grav-pistol; Omnissian power axe; servo-arm.<br>
+      1 model
+    </div>
+    <div class="card-desc">
+      <strong>LEADER:</strong><br>
+      This model can be attached to the following units:<br>
+      • Assault Intercessor Squad<br>
+      • Desolation Squad<br>
+      • Devastator Squad<br>
+      • Intercessor Squad<br>
+      • Tactical Squad
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, CHARACTER, GRENADES, IMPERIUM, TACTICS, TECHMARINE<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES
+    </div>
+  </div>
+</div>
+
+<!-- Капитан в гравис броне -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('gravis')">
+    <span>Captain in Gravis Armour</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="gravis" class="unit-content">
+    <div class="card-title">Captain in Gravis Armour</div>
+    <div class="card-stat"><strong>Stats:</strong> M5", T6, Sv3+, W6, Ld6+, OC1, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Boltstorm gauntlet [PISTOL]</td><td>12"</td><td>3</td><td>2+</td><td>4</td><td>-1</td><td>1</td></tr>
+      <tr><td>Master-crafted heavy bolt rifle [ASSAULT, HEAVY]</td><td>30"</td><td>2</td><td>2+</td><td>5</td><td>-1</td><td>3</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Master-crafted power weapon</td><td>Melee</td><td>6</td><td>2+</td><td>5</td><td>-2</td><td>2</td></tr>
+      <tr><td>Power fist</td><td>Melee</td><td>5</td><td>2+</td><td>8</td><td>-2</td><td>2</td></tr>
+      <tr><td>Relic blade [EXTRA ATTACKS]</td><td>Melee</td><td>2</td><td>2+</td><td>5</td><td>-2</td><td>2</td></tr>
+      <tr><td>Relic chainsword [EXTRA ATTACKS]</td><td>Melee</td><td>3</td><td>2+</td><td>4</td><td>-1</td><td>2</td></tr>
+      <tr><td>Relic fist</td><td>Melee</td><td>1</td><td>2+</td><td>8</td><td>-2</td><td>2</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • This model's master-crafted heavy bolt rifle and master-crafted power weapon can be replaced with:<br>
+        ▪ 1 boltstorm gauntlet, 1 power fist and 1 relic blade<br>
+        ▪ 1 boltstorm gauntlet, 1 power fist and 1 relic fist<br>
+        ▪ 1 boltstorm gauntlet, 1 power fist and 1 relic chainsword
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Leader<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Rites of Battle:</strong> Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.<br>
+      <strong>Refuse to Yield:</strong> Each time an attack is allocated to this model, halve the Damage characteristic of that attack.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Captain in Gravis Armour<br>
+      This model is equipped with: master-crafted heavy bolt rifle; master-crafted power weapon.<br>
+      1 model
+    </div>
+    <div class="card-desc">
+      <strong>LEADER:</strong><br>
+      This model can be attached to the following units:<br>
+      • Aggressor Squad<br>
+      • Eradicator Squad<br>
+      • Heavy Intercessor Squad
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, CHARACTER, GRENADES, IMPERIUM, GRAVIS, CAPTAIN<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES
+    </div>
+  </div>
+</div>
+
+<!-- Капитан в терминаторской броне -->
+<div class="unit-item">
+  <div class="unit-header" onclick="toggleUnit('terminator')">
+    <span>Captain in Terminator Armour</span>
+    <span class="toggle-icon">▼</span>
+  </div>
+  <div id="terminator" class="unit-content">
+    <div class="card-title">Captain in Terminator Armour</div>
+    <div class="card-stat"><strong>Stats:</strong> M5", T5, Sv2+, W6, Ld6+, OC1, 4+ Invulnerable Save</div>
+    <div class="card-stat"><strong>Ranged Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Storm bolter [RAPID FIRE 2]</td><td>24"</td><td>2</td><td>2+</td><td>4</td><td>0</td><td>1</td></tr>
+      <tr><td>Combi-weapon</td><td>24"</td><td>1</td><td>3+</td><td>4</td><td>0</td><td>1</td></tr>
+    </table>
+    <div class="card-stat"><strong>Melee Weapons:</strong></div>
+    <table>
+      <tr><th>WEAPON</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
+      <tr><td>Relic fist</td><td>Melee</td><td>5</td><td>2+</td><td>8</td><td>-2</td><td>2</td></tr>
+      <tr><td>Relic weapon</td><td>Melee</td><td>6</td><td>2+</td><td>5</td><td>-2</td><td>2</td></tr>
+    </table>
+    <div class="card-wargear">
+      <strong>Wargear Options:</strong><br>
+      • This model's storm bolter can be replaced with 1 combi-weapon.<br>
+      • This model's relic weapon can be replaced with 1 relic fist.
+    </div>
+    <div class="card-special">
+      <strong>Abilities:</strong><br>
+      <strong>CORE:</strong> Deep Strike, Leader<br>
+      <strong>FACTION:</strong> Oath of Moment<br>
+      <strong>Rites of Battle:</strong> Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.<br>
+      <strong>The Imperium's Sword:</strong> You can re-roll Charge rolls made for this model's unit.
+    </div>
+    <div class="card-desc">
+      <strong>UNIT COMPOSITION:</strong><br>
+      • 1 Captain in Terminator Armour<br>
+      This model is equipped with: storm bolter; relic weapon.<br>
+      1 model
+    </div>
+    <div class="card-desc">
+      <strong>LEADER:</strong><br>
+      This model can be attached to the following units:<br>
+      • Terminator Assault Squad<br>
+      • Terminator Squad
+    </div>
+    <div class="card-stat">
+      <strong>KEYWORDS:</strong> INFANTRY, CHARACTER, IMPERIUM, TERMINATOR, CAPTAIN<br>
+      <strong>FACTION KEYWORDS:</strong> ADEPTUS ASTARTES
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div class="section">
+      <h2>🧠 Тактические заметки</h2>
+      <div class="note">
+        <strong>Ранний огонь:</strong> Используйте Stormraven и Eradicators, чтобы уничтожить Genestealers, Termagants и Hive Tyrant.<br><br>
+        <strong>Доставка:</strong> Stormraven должен выгрузить Sanguinary Guard или Death Company в центр поля на 2–3 ходу.<br><br>
+        <strong>Ближний бой:</strong> Сфокусируйтесь на ударе в лоб — используйте "Revenge of the Fallen" и "Furious Charge".<br><br>
+        <strong>Knight Preceptor:</strong> Действует как отдельная сила, блокирует Carnifex и Tyrannofex. Не зависит от бонусов Blood Angels, но очень живуч.
+      </div>
+    </div>
+	
+    <div class="footer">
+      © 2025 — Армия Blood Angels. Создано для Warhammer 40,000.<br>
+      Используется по актуальным правилам Games Workshop (2024–2025).<br>
+      Карточки юнитов основаны на официальных источниках (Codex, Warhammer Community, Wahapedia).
+    </div>
+  </div>
+
+  <script>
+    function toggleUnit(id) {
+      const element = document.getElementById(id);
+      element.classList.toggle('active');
+      const icon = element.parentElement.querySelector('.toggle-icon');
+      icon.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
