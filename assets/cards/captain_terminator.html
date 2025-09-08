@@ -3,6 +3,8 @@
 </div>
 <div class="card-body">
     <div class="stats">
+        <!-- Скрытый элемент с дефолтами -->
+        <div class="card-defaults" data-default-weapon="relic_weapon" style="display: none;"></div>
         <div class="stat-item">
             <span class="stat-label">M</span>
             <span class="stat-value">5"</span>
@@ -34,7 +36,7 @@
     <div class="weapons">
         <table>
             <tr><th>RANGED WEAPONS</th><th>RANGE</th><th>A</th><th>BS</th><th>S</th><th>AP</th><th>D</th></tr>
-            <tr>
+            <tr class="range-option" data-weapon="storm_bolter">
                 <td>Storm bolter [RAPID FIRE 2]</td>
                 <td>24"</td>
                 <td>2</td>
@@ -43,7 +45,7 @@
                 <td>0</td>
                 <td>1</td>
             </tr>
-            <tr>
+            <tr class="range-option" data-weapon="combi_weapon">
                 <td>Combi-weapon [ANTI-INFANTRY 4+, DEVASTATING WOUNDS, RAPID FIRE 1]</td>
                 <td>24"</td>
                 <td>1</td>
@@ -56,7 +58,7 @@
 
         <table>
             <tr><th>MELEE WEAPONS</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
-            <tr>
+            <tr class="melee-option" data-weapon="relic_fist">
                 <td>Relic fist</td>
                 <td>Melee</td>
                 <td>5</td>
@@ -65,7 +67,7 @@
                 <td>-2</td>
                 <td>2</td>
             </tr>
-            <tr>
+            <tr class="melee-option" data-weapon="relic_weapon">
                 <td>Relic weapon</td>
                 <td>Melee</td>
                 <td>6</td>
@@ -74,7 +76,49 @@
                 <td>-2</td>
                 <td>2</td>
             </tr>
-        </table>
+              </table>
+    </div>
+
+    <div class="weapon-selector">
+        <h3>Выбор дальнобойного оружия:</h3>
+        <div class="weapon-options">
+            <div class="weapon-option">
+                <img src="assets/images/blood-drop-selected.png"
+                     class="weapon-image selected"
+                     data-weapon="storm_bolter"
+                     data-type="range"
+                     alt="Storm bolter" />
+                <span>Storm bolter</span>
+            </div>
+            <div class="weapon-option">
+                <img src="assets/images/blood-drop.png"
+                     class="weapon-image"
+                     data-weapon="combi_weapon"
+                     data-type="range"
+                     alt="Combi-weapon" />
+                <span>Combi-weapon</span>
+            </div>
+        </div>
+
+        <h3>Выбор ближнего оружия:</h3>
+        <div class="weapon-options">
+            <div class="weapon-option">
+                <img src="assets/images/blood-drop.png"
+                     class="weapon-image"
+                     data-weapon="relic_fist"
+                     data-type="melee"
+                     alt="Relic fist" />
+                <span>Relic fist</span>
+            </div>
+            <div class="weapon-option">
+                <img src="assets/images/blood-drop-selected.png"
+                     class="weapon-image selected"
+                     data-weapon="relic_weapon"
+                     data-type="melee"
+                     alt="Relic weapon" />
+                <span>Relic weapon</span>
+            </div>
+        </div>
     </div>
 
     <div class="wargear">
