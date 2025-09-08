@@ -1,4 +1,5 @@
 // loader.js
+
 async function loadCard(unitId) {
     try {
         const response = await fetch(`assets/cards/${unitId}.html`);
@@ -11,7 +12,6 @@ async function loadCard(unitId) {
             return cardHtml;
         }
 
-        // Вставляем название и очки в карточку
         const parser = new DOMParser();
         const doc = parser.parseFromString(cardHtml, 'text/html');
         const header = doc.querySelector('.card-header');
@@ -24,15 +24,12 @@ async function loadCard(unitId) {
         }
 
         return doc.body.innerHTML;
-
-       // return cardHtml;
     } catch (error) {
         console.error("Ошибка загрузки карточки:", error);
         return null;
     }
 }
 
-// Глобальная функция для загрузки всех выбранных карточек
 async function loadSelectedCards() {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
     const container = document.getElementById('cards-container');
@@ -45,11 +42,17 @@ async function loadSelectedCards() {
             const cardDiv = document.createElement('div');
             cardDiv.className = 'card';
             cardDiv.innerHTML = cardHtml;
+            cardDiv.dataset.unitId = unitId;
             container.appendChild(cardDiv);
+
+            // Восстанавливаем выбор оружия для этой карточки
+            setTimeout(() => {
+                window.addTooltipsToCard(cardDiv);
+                restoreWeaponChoicesForCard(unitId);
+            }, 10);
         }
     }
 
-    // Привязываем поведение сворачивания/разворачивания
     attachToggleHandlers();
 }
 
@@ -58,7 +61,6 @@ function attachToggleHandlers() {
         header.addEventListener('click', () => {
             const card = header.closest('.card');
             const body = card.querySelector('.card-body');
-            const footer = card.querySelector('.card-footer');
 
             if (body.classList.contains('show')) {
                 body.classList.remove('show');
@@ -70,3 +72,8 @@ function attachToggleHandlers() {
         });
     });
 }
+
+// Делаем функции доступными глобально
+window.loadCard = loadCard;
+window.loadSelectedCards = loadSelectedCards;
+window.attachToggleHandlers = attachToggleHandlers;

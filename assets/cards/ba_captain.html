@@ -36,16 +36,41 @@
         <h3>WEAPONS</h3>
         <table>
             <tr><th>Ranged Weapon</th><th>RANGE</th><th>A</th><th>BS</th><th>S</th><th>AP</th><th>D</th></tr>
-            <tr><td>Heavy bolt pistol [PISTOL]</td><td>18"</td><td>1</td><td>2+</td><td>4</td><td>-1</td><td>1</td></tr>
-            <tr><td>Inferno pistol [MELTA 2, PISTOL]</td><td>6"</td><td>1</td><td>2+</td><td>8</td><td>-4</td><td>D3</td></tr>
+            <tr class="range-option" data-weapon="heavy_bolt_pistol"><td>Heavy bolt pistol [PISTOL]</td><td>18"</td><td>1</td><td>2+</td><td>4</td><td>-1</td><td>1</td></tr>
+            <tr class="range-option" data-weapon="inferno_pistol"><td>Inferno pistol [MELTA 2, PISTOL]</td><td>6"</td><td>1</td><td>2+</td><td>8</td><td>-4</td><td>D3</td></tr>
         </table>
 
         <table>
             <tr><th>Melee weapon</th><th>RANGE</th><th>A</th><th>WS</th><th>S</th><th>AP</th><th>D</th></tr>
-            <tr><td>Master-crafted chainsword</td><td>Melee</td><td>7</td><td>2+</td><td>4</td><td>-1</td><td>2</td></tr>
-            <tr><td>Power fist</td><td>Melee</td><td>5</td><td>2+</td><td>8</td><td>-2</td><td>2</td></tr>
-            <tr><td>Relic weapon</td><td>Melee</td><td>6</td><td>2+</td><td>5</td><td>-2</td><td>2</td></tr>
+            <tr class="melee-option" data-weapon="master_crafted_chainsword"><td>Master-crafted chainsword</td><td>Melee</td><td>7</td><td>2+</td><td>4</td><td>-1</td><td>2</td></tr>
+            <tr class="melee-option" data-weapon="power_fist"><td>Power fist</td><td>Melee</td><td>5</td><td>2+</td><td>8</td><td>-2</td><td>2</td></tr>
+            <tr class="melee-option" data-weapon="relic_weapon"><td>Relic weapon</td><td>Melee</td><td>6</td><td>2+</td><td>5</td><td>-2</td><td>2</td></tr>
         </table>
+    </div>
+
+    <div class="weapon-selector">
+        <h3>Выбор дальнобойного оружия:</h3>
+        <div class="weapon-options">
+            <label class="weapon-option">
+                <input type="radio" name="range_weapon_ba_captain" value="heavy_bolt_pistol" checked /> Heavy bolt pistol
+            </label>
+            <label class="weapon-option">
+                <input type="radio" name="range_weapon_ba_captain" value="inferno_pistol" /> inferno-pistol
+            </label>
+        </div>
+
+        <h3>Выбор ближнего оружия:</h3>
+        <div class="weapon-option">
+            <label class="weapon-option">
+                <input type="radio" name="melee_weapon_ba_captain" value="master_crafted_chainsword" /> Master-crafted chainsword
+            </label>
+            <label class="weapon-option">
+                <input type="radio" name="melee_weapon_ba_captain" value="power_fist"  /> Relic fist
+            </label>
+            <label class="weapon-option">
+                <input type="radio" name="melee_weapon_ba_captain" value="relic_weapon" /> Relic weapon
+            </label>
+        </div>
     </div>
 
     <div class="wargear">

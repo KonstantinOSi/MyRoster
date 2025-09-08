@@ -24,11 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Инициализация
     if (window.unitData) {
-        window.generateUnitList(); // Вызываем из unitListGenerator.js
+        window.generateUnitList();
+        window.loadSelectedCards(); // Загружаем карточки
+        window.initTooltips(); // Инициализируем подсказки
+        setTimeout(() => {
+            window.initWeaponSelectors(); // Инициализируем выбор оружия
+
+        }, 100); // Ждём 100 мс, чтобы карточки загрузились
     } else {
         console.error("unitData не загружены");
     }
 
     updateTotalPoints();
-    window.loadSelectedCards();
 });

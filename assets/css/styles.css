@@ -240,10 +240,141 @@ h1 {
    /* text-align: center;*/
 }
 
+/* Стили для выбора оружия */
+.weapon-selector {
+    margin: 15px 0;
+    padding: 10px;
+    background: #2a2a2a;
+    border-radius: 5px;
+    border-left: 3px solid #d42b2b;
+}
+
+.weapon-selector h3 {
+    color: #d42b2b;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.weapon-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.weapon-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.weapon-image {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    filter: grayscale(70%); /* Серый для не выбранного */
+}
+
+.weapon-image:hover {
+    transform: scale(1.1);
+}
+
+.weapon-image.selected {
+    filter: none; /* Цветной для выбранного */
+    transform: scale(1.2);
+}
+
+.weapon-option span {
+    font-size: 0.9rem;
+    color: #ddd;
+    text-align: center;
+}
+
+.weapon-option input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Подсветка выбранного оружия в таблице */
+.melee-option.selected,
+.range-option.selected {
+    background: #4a0000 !important;
+    font-weight: bold;
+    color: #fff;
+}
+
+.melee-option.selected td,
+.range-option.selected td {
+    border-color: #d42b2b;
+}
+
 /* Стили для ключевых слов */
 .keywords {
     font-size: 0.8rem;
     color: #ccc;
     margin-top: 10px;
     font-style: italic;
+}
+
+/* Стили для слов с подсказками */
+.tooltip-word {
+    border-bottom: 1px dotted #d42b2b;
+    cursor: help;
+    position: relative;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.tooltip-word:hover {
+    color: #ff6666;
+}
+
+/* Всплывающая подсказка */
+.tooltip-popup {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: normal;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    margin-bottom: 5px;
+    min-width: 200px;
+    max-width: 300px;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.tooltip-popup::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #333;
+}
+
+.tooltip-word:hover .tooltip-popup {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Адаптивное позиционирование подсказок */
+@media (max-width: 768px) {
+    .tooltip-popup {
+        min-width: 150px;
+        max-width: 200px;
+        font-size: 0.8rem;
+    }
 }
